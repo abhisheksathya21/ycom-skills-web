@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/Components/LandingPage/Skillsection.jsx", "app/Components/LandingPage/Header.jsx", "app/Components/LandingPage/CoursesCarousel.jsx", "app/Components/LandingPage/SkillsRadial.jsx", "app/Components/LandingPage/InstructorsCarousel.jsx"  ],
   "exclude": ["node_modules"]
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import google from "../../../public/Assets/Landing Page/google.svg";
 import logo from "../../../public/Assets/Logo/logo (2).png"
+import loginimage from "../../../public/Assets/LoginSignUP/Login.svg"
 export default function LoginPage() {
     const router=useRouter()
   return (
@@ -10,14 +11,10 @@ export default function LoginPage() {
       
       {/* LEFT SIDE */}
       <div className="w-1/2 flex flex-col justify-center items-center p-10">
-        <Image
-          src={logo} 
-          alt="Logo"
-          className="w-48 mb-10"
-        />
+       
 
-        <img
-          src="/illustration.png" 
+        <Image
+          src={loginimage} 
           alt="Illustration"
           className="w-96"
         />

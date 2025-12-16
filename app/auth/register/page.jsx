@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import google from "../../../public/Assets/Landing Page/google.svg"
-import logo from "../../../public/Assets/Logo/logo (2).png"
+// import logo from "../../../public/Assets/Logo/logo (2).png"
+import register from "../../../public/Assets/LoginSignUP/SignUP (Register).svg"
 import { useRouter } from "next/navigation";
 export default function LoginPage() {
     const router=useRouter();
@@ -10,14 +11,10 @@ export default function LoginPage() {
       
       {/* Left side */}
       <div className="w-1/2 flex flex-col justify-center items-center p-10">
-        <Image
-          src={logo} 
-          alt="Logo"
-          className="w-48 mb-10"
-        />
+       
 
-        <img
-          src="/illustration.png" 
+        <Image
+          src={register}
           alt="Illustration"
           className="w-96"
         />
