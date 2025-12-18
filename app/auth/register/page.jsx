@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import google from "../../../public/Assets/Landing Page/google.svg"
-// import logo from "../../../public/Assets/Logo/logo (2).png"
+
 import register from "../../../public/Assets/LoginSignUP/SignUP (Register).svg"
 import { useRouter } from "next/navigation";
 export default function LoginPage() {
@@ -72,8 +72,9 @@ export default function LoginPage() {
 
         
 
-          {/* Login Button */}
-          <button className="w-full mt-5 bg-black text-white py-2 rounded-md text-lg font-medium cursor-pointer">
+         {/* Create Account */}
+          <button className="w-full mt-4 border py-2 rounded-md cursor-pointer"
+          onClick={()=>router.push("/auth/Otp")}>
             Next
           </button>
 

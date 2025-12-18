@@ -1,20 +1,20 @@
-import Header from "./Components/LandingPage/Header";
-import Hero from "./Components/LandingPage/Hero";
-import SearchBar from "./Components/LandingPage/SearchBar";
-import HomeBanner from "./Components/LandingPage/HomeBanner";
-import VideoSection from "./Components/LandingPage/VideoSection";
-import Carousel from "./Components/LandingPage/Carousel"
-import SkillsSection from "./Components/LandingPage/Skillsection";
-import LearningAppSection from "./Components/LandingPage/LearningApp";
-import CoursesCarousel from "./Components/LandingPage/CoursesCarousel";
-import Reasons from "./Components/LandingPage/ReasonsToJoin";
-import SkillsRadial from "./Components/LandingPage/SkillsRadial";
-import AppInstall from "./Components/LandingPage/AppInstall";
-import InstructorsCarousel from "./Components/LandingPage/InstructorsCarousel"
-import StudentReviewsCarousel from "./Components/LandingPage/StudentReviewsCarousel"
-import StudentTestimonial from "./Components/LandingPage/StudentTestimonial"
-import FAQSection from "./Components/LandingPage/FAQSection";
-import Footer from "./Components/LandingPage/Footer"
+import Header from "./components/LandingPage/Header";
+import Hero from "./components/LandingPage/Hero";
+import SearchBar from "./components/LandingPage/SearchBar";
+import HomeBanner from "./components/LandingPage/HomeBanner";
+import VideoSection from "./components/LandingPage/VideoSection";
+import Carousel from "./components/LandingPage/Carousel"
+import SkillsSection from "./components/LandingPage/Skillsection";
+import LearningAppSection from "./components/LandingPage/LearningApp";
+import CoursesCarousel from "./components/LandingPage/CoursesCarousel";
+import Reasons from "./components/LandingPage/ReasonsToJoin";
+import SkillsRadial from "./components/LandingPage/SkillsRadial";
+import AppInstall from "./components/LandingPage/AppInstall";
+import InstructorsCarousel from "./components/LandingPage/InstructorsCarousel"
+import StudentReviewsCarousel from "./components/LandingPage/StudentReviewsCarousel"
+import StudentTestimonial from "./components/LandingPage/StudentTestimonial"
+import FAQSection from "./components/LandingPage/FAQSection";
+import Footer from "./components/LandingPage/Footer"
 // import VideoShowcase from "./Components/VideoShowcase";
 export default function Home() {
   return (
