@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
+import { useRef } from "react";
 import loginimage from "../../../public/Assets/LoginSignUP/Login.svg";
 
 export default function TellUsPage() {
   const [gender, setGender] = useState("male");
+ const router = useRouter();
+  const inputsRef = useRef([]);
 
   return (
     <div className="min-h-screen flex bg-white">
@@ -117,8 +120,10 @@ export default function TellUsPage() {
 
           {/* STICKY LOGIN BUTTON */}
           <div className="p-6 border-t bg-white sticky bottom-0">
-            <button className="w-full bg-black text-white py-2 rounded-md text-lg font-medium">
+            <button className="w-full bg-black text-white py-2 rounded-md text-lg font-medium"
+             onClick={() => router.push("/home")}>
               Login
+              
             </button>
           </div>
 

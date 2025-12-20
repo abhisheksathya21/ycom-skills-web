@@ -1,43 +1,44 @@
-import CourseCard from "@/app/components/home/CourseCard";
+"use client";
+import { useState } from "react";
+
 import HomeTabs from "@/app/components/home/HomeTabs";
 import CourseCarousel from "@/app/components/home/CourseCarousel";
+import CourseCard from "@/app/components/home/CourseCard";
+import CategoryFilters from "@/app/components/home/CategoryFilters";
+import CourseList from "@/app/components/home/CourseList";
 
-import course1 from "../../../public/Assets/Landing Page/course_banner3.svg";
-import course2 from "../../../public/Assets/Landing Page/course_banner4.svg";
+import { courses } from "@/app/lib/courseData";
 
 export default function CoursePage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const categories = ["All", ...new Set(courses.map(c => c.category))];
+
+  const filteredCourses =
+    activeCategory === "All"
+      ? courses
+      : courses.filter(course => course.category === activeCategory);
+
   return (
     <>
       <HomeTabs />
 
+      {/* FEATURED COURSES */}
       <CourseCarousel title="Explore Courses">
-        <CourseCard
-          thumbnail={course1}
-          title="Digital Marketing for Beginners"
-          instructor="YashBusinessman"
-          rating="4.8"
-          reviews="4560"
-          language="Hindi • English"
-          price="499"
-          badge="Bestseller"
-        />
+        {courses.slice(0, 6).map(course => (
+          <CourseCard key={course.id} {...course} />
+        ))}
+      </CourseCarousel>
 
-        <CourseCard
-          thumbnail={course2}
-          title="UI & UX Design with Adobe XD & Figma"
-          instructor="YashBusinessman"
-          rating="4.7"
-          reviews="3210"
-          language="English"
-          price="399"
-        />
+      {/* CATEGORY FILTERS */}
+      <CategoryFilters
+        categories={categories}
+        active={activeCategory}
+        onChange={setActiveCategory}
+      />
 
-        {/* Duplicate for demo */}
-        <CourseCard thumbnail={course2} title="UI & UX Design with Adobe XD & Figma" instructor="YashBusinessman" rating="4.7" reviews="3210" language="English" price="399" />
-        <CourseCard thumbnail={course2} title="UI & UX Design with Adobe XD & Figma" instructor="YashBusinessman" rating="4.7" reviews="3210" language="English" price="399" />
-        <CourseCard thumbnail={course2} title="UI & UX Design with Adobe XD & Figma" instructor="YashBusinessman" rating="4.7" reviews="3210" language="English" price="399" />
-        <CourseCard thumbnail={course2} title="UI & UX Design with Adobe XD & Figma" instructor="YashBusinessman" rating="4.7" reviews="3210" language="English" price="399" />
-     </CourseCarousel>
+      {/* COURSE LIST */}
+      <CourseList courses={filteredCourses} />
     </>
   );
 }

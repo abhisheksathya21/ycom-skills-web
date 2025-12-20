@@ -58,7 +58,8 @@ export default function OtpPage() {
           {/* NEXT BUTTON */}
           <button
             className="w-full bg-black text-white py-2 rounded-md text-lg font-medium"
-            onClick={() => router.push("/")}
+             onClick={() => router.push("/auth/tell-us")}
+           
           >
             Next
           </button>
@@ -66,7 +67,7 @@ export default function OtpPage() {
           {/* CREATE ACCOUNT */}
           <button
             className="w-full mt-4 border py-2 rounded-md"
-            onClick={() => router.push("/auth/tell-us")}
+             onClick={() => router.push("/")}
           >
             Create an Account
           </button>
