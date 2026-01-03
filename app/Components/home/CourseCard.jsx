@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import { Heart, Star } from "lucide-react";
+import Link from "next/link";
+import { Heart } from "lucide-react";
 
 export default function CourseCard({
+  id,
   thumbnail,
   title,
   instructor,
@@ -13,57 +15,67 @@ export default function CourseCard({
   badge,
 }) {
   return (
-    <div className="w-[260px] bg-white rounded-xl shadow-sm border hover:shadow-md transition">
-      
-      {/* THUMBNAIL */}
-      <div className="relative">
-        <Image
-          src={thumbnail}
-          alt={title}
-          className="rounded-t-xl object-cover h-[150px]"
-        />
+    <Link href={`/home/course/${id}`} className="block">
+      <div
+        className="
+          w-[240px] bg-white border rounded-xl overflow-hidden 
+          flex-shrink-0 cursor-pointer
+          hover:shadow-md transition
+        "
+      >
+        {/* IMAGE */}
+        <div className="relative">
+          <Image
+            src={thumbnail}
+            alt={title}
+            className="w-full h-[140px] object-cover"
+          />
 
-        {/* FAVORITE */}
-        <button className="absolute top-2 right-2 bg-white p-1 rounded-full shadow">
-          <Heart size={16} className="text-red-500" />
-        </button>
-      </div>
-
-      {/* CONTENT */}
-      <div className="p-3 space-y-1">
-        
-        <p className="text-xs text-gray-500">{language}</p>
-
-        <h3 className="font-semibold text-sm line-clamp-2">
-          {title}
-        </h3>
-
-        <p className="text-xs text-gray-500">
-          By {instructor}
-        </p>
-
-        {/* RATING */}
-        <div className="flex items-center gap-1 text-xs">
-          <span className="font-semibold">{rating}</span>
-          <Star size={12} className="text-yellow-500 fill-yellow-500" />
-          <span className="text-gray-500">({reviews})</span>
+          {/* Wishlist (click-safe) */}
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow"
+          >
+            <Heart size={14} />
+          </button>
         </div>
 
-        {/* BADGE */}
-        {badge && (
-          <span className="inline-block text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded">
-            {badge}
-          </span>
-        )}
+        {/* CONTENT */}
+        <div className="p-3 space-y-1.5">
+          <h3 className="text-sm font-semibold leading-tight line-clamp-2">
+            {title}
+          </h3>
 
-        {/* PRICE */}
-        <div className="flex items-center justify-between mt-2">
-          <span className="font-semibold">₹{price}</span>
-          <button className="border px-3 py-1 rounded text-xs hover:bg-black hover:text-white transition">
+          <p className="text-xs text-gray-500">
+            By {instructor}
+          </p>
+
+          <div className="text-xs">
+            ⭐ {rating}
+            <span className="text-gray-400"> ({reviews})</span>
+          </div>
+
+          <div className="flex gap-2 flex-wrap text-[11px]">
+            {badge && (
+              <span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded">
+                {badge}
+              </span>
+            )}
+            <span className="text-gray-500">{language}</span>
+          </div>
+
+          <div className="font-semibold text-sm">
+            ₹{price}/-
+          </div>
+
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="w-full mt-2 bg-black text-white text-xs py-1.5 rounded hover:bg-gray-800"
+          >
             Enroll Now
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

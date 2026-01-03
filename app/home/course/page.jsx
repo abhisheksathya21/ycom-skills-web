@@ -10,12 +10,12 @@ import CourseList from "@/app/components/home/CourseList";
 import { courses } from "@/app/lib/courseData";
 
 export default function CoursePage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All Courses");
 
-  const categories = ["All", ...new Set(courses.map(c => c.category))];
+  const categories = ["All Courses", ...new Set(courses.map(c => c.category))];
 
   const filteredCourses =
-    activeCategory === "All"
+    activeCategory === "All Courses"
       ? courses
       : courses.filter(course => course.category === activeCategory);
 
@@ -23,21 +23,18 @@ export default function CoursePage() {
     <>
       <HomeTabs />
 
-      {/* FEATURED COURSES */}
       <CourseCarousel title="Explore Courses">
-        {courses.slice(0, 6).map(course => (
+        {courses.map(course => (
           <CourseCard key={course.id} {...course} />
         ))}
       </CourseCarousel>
 
-      {/* CATEGORY FILTERS */}
       <CategoryFilters
         categories={categories}
         active={activeCategory}
         onChange={setActiveCategory}
       />
 
-      {/* COURSE LIST */}
       <CourseList courses={filteredCourses} />
     </>
   );

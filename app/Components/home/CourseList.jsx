@@ -4,14 +4,13 @@ import { Clock } from "lucide-react";
 
 export default function CourseList({ courses }) {
   return (
-    <div className="space-y-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {courses.map((course) => (
         <div
           key={course.id}
           className="flex items-center justify-between bg-white 
                      border rounded-xl px-5 py-4 hover:shadow-sm transition"
         >
-          {/* LEFT */}
           <div className="flex items-center gap-4">
             <Image
               src={course.thumbnail}
@@ -29,17 +28,13 @@ export default function CourseList({ courses }) {
             </div>
           </div>
 
-          {/* RIGHT */}
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-1 text-xs text-gray-500">
               <Clock size={14} />
               {course.duration}
             </div>
 
-            <button
-              className="bg-black text-white px-4 py-1.5 
-                         rounded-md text-xs hover:bg-gray-800"
-            >
+            <button className="bg-black text-white px-4 py-1.5 rounded-md text-xs hover:bg-gray-800">
               Enroll Now
             </button>
           </div>
